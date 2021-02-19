@@ -16,30 +16,21 @@ it('should respond with clothing inventory', async (done) => {
     done();
 });
 
-// it('should respond with clothing inventory', async done => {
-//     const myData = [
-//         {
-//             id: 1,
-//             name: 'Floral Silk Top',
-//             image: '../assets/blue-silk-top.jpg',
-//             description: 'blue silk top with a pan collar',
-//             category: 'vintage-tops',
-//             size: 'Large',
-//             price: 60
-//         },
-//         {
-//             id: 2,
-//             name: 'Denim Vest',
-//             image: '../assets/denim-vest-velvet-collar.jpg',
-//             description: 'denim vest with a black suede collar',
-//             category: 'vintage-tops',
-//             size: 'medium',
-//             price: 45
-//         }
-//     ];
-//     const response = await request.get('/inventory');
+it('should respond with a single clothing', async (done) => {
+    const expectation = {
+        inventory: {
+            id: 1,
+            name: 'Floral Silk Top',
+            image: '../assets/blue-silk-top.jpg',
+            description: 'blue silk top with a pan collar',
+            category: 'vintage-tops',
+            size: 'Large',
+            price: 60
+        }
+    };
+    const response = await request.get('/inventory/1');
 
-//     expect(response.status).toBe(200);
-//     expect(response.body).toEqual(myData);
-//     done();
-// });
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual(expectation);
+    done();
+});

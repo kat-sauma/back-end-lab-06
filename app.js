@@ -23,7 +23,7 @@ app.get('/inventory/:id', (req, res) => {
 
     const clothingItem = clothesInventory.find((clothes) => clothes.id === id);
 
-    res.json({ results: clothingItem });
+    res.json({ inventory: clothingItem });
 });
 
 module.exports = {
